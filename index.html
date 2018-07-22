@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" /> 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+$(document).ready(function() {
+  var api = 'http://ec2-35-176-116-37.eu-west-2.compute.amazonaws.com:3000/conference';
+  var urlParams = new URLSearchParams(window.location.search);
+  var shortCode = urlParams.get('code') || '';
+
+  $.get( api, { shortcode: 'eq.' + shortCode } )
+  .done(function( data ) {
+    alert( "Data Loaded: " + data[0].name );
+  });
+});
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
